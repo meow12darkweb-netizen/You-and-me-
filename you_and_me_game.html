@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7e8f2">
+<title>You & Me 💗 — Couple Game</title>
+<style>
+:root{--pink:#f26fa8;--pink2:#ffd5e7;--purple:#8d7cf6;--ink:#332b42;--muted:#766d83;--card:#ffffffd9;--line:#eadce9;--bg:#fff7fb;--good:#247c61;--shadow:0 16px 45px #6d47751a}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:radial-gradient(circle at 10% 0%,#ffe2ef 0,transparent 32%),radial-gradient(circle at 100% 20%,#e7e2ff 0,transparent 30%),var(--bg);min-height:100vh}
+button,input{font:inherit}button{cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s}button:active{transform:scale(.97)}button:focus-visible,input:focus-visible{outline:3px solid #a99aff;outline-offset:3px}
+.wrap{width:min(900px,100%);margin:auto;padding:18px 15px 42px}.top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:18px}.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:-.5px;font-size:1.1rem}.logo{display:grid;place-items:center;width:42px;height:42px;border-radius:15px;background:linear-gradient(135deg,#ff8cbb,#a79aff);box-shadow:0 7px 18px #e989bd4d;font-size:22px}.pill{font-size:.78rem;border:1px solid #ead6e7;background:#ffffffa6;border-radius:99px;padding:8px 11px;color:var(--muted)}
+.hero{text-align:center;padding:20px 8px 22px}.eyebrow{color:#b54f83;font-weight:800;font-size:.78rem;text-transform:uppercase;letter-spacing:1.7px}.hero h1{font-size:clamp(2.15rem,8vw,4rem);line-height:1.02;letter-spacing:-2px;margin:10px 0;background:linear-gradient(100deg,#e75f9d,#8676ef);color:transparent;background-clip:text}.hero p{color:var(--muted);max-width:520px;margin:0 auto;line-height:1.55}
+.panel{background:var(--card);backdrop-filter:blur(10px);border:1px solid #fff;border-radius:24px;padding:18px;box-shadow:var(--shadow);margin:14px 0}.section-title{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}.section-title h2{font-size:1.05rem;margin:0}.small{font-size:.85rem;color:var(--muted);line-height:1.45}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.mode{border:1.5px solid var(--line);border-radius:19px;padding:14px 10px;background:#fff;text-align:left;min-height:144px;color:var(--ink)}.mode:hover{border-color:#ee9bc3;box-shadow:0 8px 20px #d989b01c}.mode.active{border-color:var(--pink);background:linear-gradient(145deg,#fff,#fff0f7);box-shadow:0 0 0 3px #f9c6de55}.mode .emoji{font-size:1.8rem;display:block;margin-bottom:8px}.mode strong{display:block;font-size:.95rem;margin-bottom:4px}.mode span:last-child{display:block;font-size:.78rem;color:var(--muted);line-height:1.35}
+label{font-size:.82rem;font-weight:750;display:block;margin-bottom:6px}input{width:100%;border:1.5px solid var(--line);border-radius:13px;padding:12px 13px;background:#fff;color:var(--ink);min-width:0}input:focus{border-color:#b29bfa}.row{display:flex;gap:9px;align-items:center}.row>*{flex:1;min-width:0}.field{margin:10px 0}.btn{border:1.5px solid var(--pink);border-radius:14px;background:#fff;color:#b83d7a;font-weight:800;padding:12px 15px;box-shadow:0 4px 0 #f4c1d9}.btn.primary{background:linear-gradient(100deg,#f278ad,#9a89fa);border-color:#e778b1;color:#fff;box-shadow:0 5px 0 #d6b4df}.btn.dark{border-color:#b9aafa;color:#6252b8;box-shadow:0 4px 0 #ddd5fa}.btn.ghost{border-color:var(--line);box-shadow:none;color:var(--muted)}.btn:disabled{opacity:.45;cursor:not-allowed}
+.hidden{display:none!important}.roomline{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.roomcode{font-weight:950;font-size:1.3rem;letter-spacing:3px;color:#9c4f91}.players{display:flex;gap:8px;flex-wrap:wrap}.player{border:1px solid var(--line);border-radius:99px;padding:8px 11px;background:#fff;font-size:.84rem}.player.online:before{content:"● ";color:#2eaa78}.status{font-size:.8rem;color:var(--muted)}.status.good{color:var(--good)}.question{font-size:clamp(1.35rem,5vw,2rem);line-height:1.2;letter-spacing:-.6px;margin:10px 0 16px}.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}.answer{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:14px;text-align:left;color:var(--ink);font-weight:750;min-height:58px}.answer:hover{border-color:#e995c0}.answer.chosen{border-color:var(--pink);background:#fff0f7}.answer.correct{border-color:#78c8a7;background:#effbf5}.progress{height:7px;background:#f0e4f0;border-radius:99px;overflow:hidden;margin:12px 0}.progress div{height:100%;background:linear-gradient(90deg,#f278ad,#9a89fa);width:0;transition:width .3s}.notice{background:#fff4fa;border:1px solid #f4d6e6;border-radius:14px;padding:11px 12px;font-size:.88rem;line-height:1.45}.tag{display:inline-block;background:#f3edff;color:#7160bd;border-radius:99px;padding:5px 9px;font-size:.75rem;font-weight:800}.adventure-map{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:12px 0}.spot{border:1.5px solid var(--line);background:#fff;border-radius:16px;padding:13px 8px;text-align:center;color:var(--ink)}.spot span{font-size:1.7rem;display:block}.spot small{display:block;color:var(--muted);margin-top:4px}.spot.locked{opacity:.48}.spot.current{border-color:var(--purple);background:#f6f3ff}.story{background:linear-gradient(130deg,#fff0f7,#f4f1ff);border-radius:18px;padding:16px;line-height:1.6}.footer{text-align:center;font-size:.78rem;color:#8d8196;margin-top:22px}.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#342b43;color:white;padding:11px 15px;border-radius:12px;box-shadow:var(--shadow);z-index:10;max-width:calc(100% - 24px);font-size:.88rem}.toast:empty{display:none}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.mode{min-height:auto;display:grid;grid-template-columns:43px 1fr;column-gap:9px;align-items:center;padding:12px}.mode .emoji{grid-row:span 2;margin:0;font-size:1.7rem}.mode strong{align-self:end}.mode span:last-child{align-self:start}.panel{padding:15px;border-radius:20px}.answers{grid-template-columns:1fr}.hero{padding-top:12px}.row.stack{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><div class="logo">💗</div><span>You & Me</span></div>
+    <div class="pill">A tiny world for two ✨</div>
+  </header>
+  <section class="hero">
+    <div class="eyebrow">made for your favourite person</div>
+    <h1>You & Me 💗</h1>
+    <p>Play, laugh, and make little memories together — one room, two phones, three ways to play.</p>
+  </section>
+
+  <section class="panel" id="setup">
+    <div class="section-title"><h2>✨ Pick your game</h2><span class="tag">3 games in 1</span></div>
+    <div class="grid">
+      <button class="mode active" data-mode="quiz"><span class="emoji">💌</span><strong>Couple Quiz</strong><span>Guess each other's favourite things</span></button>
+      <button class="mode" data-mode="truth"><span class="emoji">🤭</span><strong>Truth or Dare</strong><span>Sweet questions & silly dares</span></button>
+      <button class="mode" data-mode="adventure"><span class="emoji">🏡</span><strong>Couple Adventure</strong><span>Unlock a tiny virtual world</span></button>
+    </div>
+    <div class="row stack" style="margin-top:17px;align-items:end">
+      <div class="field"><label for="playerName">Your nickname</label><input id="playerName" maxlength="18" placeholder="e.g. Karki" autocomplete="nickname"></div>
+      <div class="field"><label for="roomInput">Room code (if joining)</label><input id="roomInput" maxlength="6" placeholder="e.g. PINK42" autocapitalize="characters"></div>
+    </div>
+    <div class="row stack">
+      <button class="btn primary" id="createBtn">Create a room 💗</button>
+      <button class="btn dark" id="joinBtn">Join Dhaani's room ↗</button>
+    </div>
+    <p class="small" style="margin-bottom:0">Create a room and send the 6-character code to your partner. Both players open this same website on their own phones.</p>
+  </section>
+
+  <section class="panel hidden" id="lobby">
+    <div class="section-title"><h2>💞 Your room</h2><span class="tag" id="modeLabel">Couple Quiz</span></div>
+    <div class="roomline"><div><div class="small">ROOM CODE</div><div class="roomcode" id="roomCode">------</div></div><button class="btn" id="copyBtn">Copy invite info</button></div>
+    <div class="players" id="players" style="margin:14px 0"></div>
+    <div class="status" id="connectionStatus">Connecting…</div>
+    <div class="notice" style="margin-top:12px">💡 Both players should join the same room. The game syncs answers and progress when Firebase is configured.</div>
+    <div class="row stack" style="margin-top:14px"><button class="btn primary" id="startBtn">Start playing ✨</button><button class="btn ghost" id="leaveBtn">Leave room</button></div>
+  </section>
+
+  <section class="panel hidden" id="gamePanel">
+    <div class="section-title"><h2 id="gameHeading">💌 Couple Quiz</h2><span class="tag" id="roundTag">Round 1</span></div>
+    <div class="progress"><div id="progressBar"></div></div>
+    <div id="gameContent"></div>
+    <div class="row stack" style="margin-top:14px"><button class="btn primary" id="nextBtn">Next 💗</button><button class="btn ghost" id="backBtn">Back to room</button></div>
+  </section>
+
+  <section class="panel hidden" id="resultPanel">
+    <div style="text-align:center;padding:10px 0">
+      <div style="font-size:3rem">🎉💗✨</div><h2>That was your little memory!</h2>
+      <p class="small">You don't need a perfect score — the fun is playing together.</p>
+      <div id="resultText" class="notice" style="margin:14px 0"></div>
+      <button class="btn primary" id="playAgainBtn">Play another round</button>
+    </div>
+  </section>
+  <div class="footer">Made with 💗 for two people who make each other smile.</div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- OPTIONAL REAL-TIME MULTIPLAYER:
+  1) Create a Firebase project at https://console.firebase.google.com/
+  2) Add a Web App and paste its config below.
+  3) Enable Realtime Database and choose test rules only while testing.
+  4) Replace YOUR_* values below. Keep database rules secure before sharing publicly.
+  This page can also be previewed locally in solo/demo mode without Firebase.
+-->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getDatabase, ref, set, get, update, onValue, onDisconnect, remove, runTransaction } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  databaseURL: "https://YOUR_PROJECT-default-rtdb.firebaseio.com",
+  projectId: "YOUR_PROJECT",
+  storageBucket: "YOUR_PROJECT.appspot.com",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+const configured = !Object.values(firebaseConfig).some(v => String(v).includes("YOUR_"));
+let db = null;
+if (configured) { try { db = getDatabase(initializeApp(firebaseConfig)); } catch(e) { console.warn(e); } }
+
+const $ = id => document.getElementById(id);
+const modeNames = {quiz:"Couple Quiz",truth:"Truth or Dare",adventure:"Couple Adventure"};
+const quizQuestions = [
+ {q:"What sounds like your perfect date?",a:["Rainy walk 🌧️","Movie night 🎬","Street-food hunt 🌮","Sunset together 🌅"]},
+ {q:"Which tiny thing feels most romantic?",a:["A sweet message 💌","Remembering details 🥹","A surprise snack 🍫","Making time for me 🫶"]},
+ {q:"Pick our dream mini-adventure:",a:["Explore a new city 🗺️","Build a cosy room 🏡","Beach sunset 🌊","Mountain picnic ⛰️"]},
+ {q:"What makes a day instantly better?",a:["A call from you 📞","A funny meme 😂","A thoughtful note ✍️","A long chat 🌙"]},
+ {q:"Choose a matching duo vibe:",a:["Chaotic besties 🤪","Soft & cosy ☁️","Adventure buddies 🧭","Foodie partners 🍜"]},
+ {q:"What would we name our imaginary pet?",a:["Mochi 🐻","Golu 🐣","Pixel 🐾","Biscuit 🍪"]}
+];
+const truths = [
+ "What's one little thing I do that makes you smile? 😊",
+ "Which memory of us would you replay for a day? 💗",
+ "What is one new thing you'd love for us to try together? 🌈",
+ "What was your first impression of me? 🤭",
+ "Choose one song that reminds you of us 🎶",
+ "What's a tiny way I can make your day better? 🫶"
+];
+const dares = [
+ "Send your best silly selfie (only if you feel like it) 🤪",
+ "Give the other player a three-word compliment 💌",
+ "Make up a cute nickname for each other 🐣",
+ "Do your funniest 5-second dance 😂",
+ "Send 3 emojis that describe your duo ✨",
+ "Draw a tiny heart and show it on camera 💗"
+];
+const spots = [
+ {name:"Cosy Café",emoji:"☕",desc:"You found a tiny café with warm lights and two hot chocolates.",choice:["Order hot chocolate 🍫","Share a pastry 🥐"]},
+ {name:"Cloud Garden",emoji:"☁️",desc:"A floating garden is full of soft clouds and glowing flowers.",choice:["Plant a heart flower 🌷","Make a wish ⭐"]},
+ {name:"Moon Bridge",emoji:"🌙",desc:"A silver bridge leads to a quiet view of the stars.",choice:["Count constellations ✨","Make a silly star name 🌟"]},
+ {name:"Memory Cove",emoji:"🌊",desc:"A peaceful cove has a little scrapbook waiting for you.",choice:["Add a favourite memory 📸","Write a future adventure 🗺️"]},
+ {name:"Dream House",emoji:"🏡",desc:"You unlocked a cosy little house with a balcony and fairy lights.",choice:["Decorate with plants 🪴","Add a gaming corner 🎮"]}
+];
+let selectedMode="quiz", roomId="", playerId="", playerName="", roomUnsub=null, playersUnsub=null, gameUnsub=null, currentRoom=null, round=0, chosen=null, localMode=false, localAnswers=[], localTruthIndex=0, localSpot=0;
+
+const toast = msg => { $("toast").textContent=msg; clearTimeout(toast.timer); toast.timer=setTimeout(()=>$("toast").textContent="",2600); };
+const show = id => $(id).classList.remove("hidden");
+const hide = id => $(id).classList.add("hidden");
+function setMode(mode){selectedMode=mode;document.querySelectorAll(".mode").forEach(b=>b.classList.toggle("active",b.dataset.mode===mode));}
+document.querySelectorAll(".mode").forEach(b=>b.addEventListener("click",()=>setMode(b.dataset.mode)));
+function randCode(){return Math.random().toString(36).slice(2,8).toUpperCase().padEnd(6,"A");}
+function setStatus(msg,good=false){$("connectionStatus").textContent=msg;$("connectionStatus").className="status"+(good?" good":"");}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function refreshPlayers(players={}){$("players").innerHTML=Object.values(players).map(p=>`<span class="player online">${escapeHtml(p.name||"Player")}${p.id===playerId?" (you)":""}</span>`).join("");}
+function cleanup(){[roomUnsub,playersUnsub,gameUnsub].forEach(fn=>{if(fn)fn()});roomUnsub=playersUnsub=gameUnsub=null;}
+async function createRoom(){
+ playerName=$("playerName").value.trim()||"Player 1";playerId=crypto.randomUUID?crypto.randomUUID():String(Date.now())+Math.random().toString(36).slice(2);
+ if(!db){localMode=true;roomId=randCode();currentRoom={mode:selectedMode,players:{[playerId]:{id:playerId,name:playerName}},state:{round:0}};enterLobby();setStatus("Demo mode — add Firebase config for two-phone real-time play.");return;}
+ roomId=randCode();
+ try{const roomRef=ref(db,"rooms/"+roomId);const snap=await get(roomRef);if(snap.exists())return createRoom();
+ currentRoom={mode:selectedMode,createdAt:Date.now(),players:{[playerId]:{id:playerId,name:playerName}},state:{round:0,answers:{},votes:{},spot:0}};
+ await set(roomRef,currentRoom);await onDisconnect(ref(db,`rooms/${roomId}/players/${playerId}`)).remove();watchRoom();enterLobby();
+ }catch(e){toast("Could not create room. Check Firebase setup.");console.error(e);}
+}
+async function joinRoom(){
+ playerName=$("playerName").value.trim()||"Player 2";playerId=crypto.randomUUID?crypto.randomUUID():String(Date.now())+Math.random().toString(36).slice(2);roomId=$("roomInput").value.trim().toUpperCase();
+ if(roomId.length<4){toast("Enter the room code first 💗");return;}
+ if(!db){toast("Firebase isn't configured yet. Add the config to enable joining.");return;}
+ try{const roomRef=ref(db,"rooms/"+roomId);const snap=await get(roomRef);if(!snap.exists()){toast("Room not found — check the code.");return;}const room=snap.val();if(Object.keys(room.players||{}).length>=2){toast("This room already has two players.");return;}
+ await set(ref(db,`rooms/${roomId}/players/${playerId}`),{id:playerId,name:playerName,joinedAt:Date.now()});await onDisconnect(ref(db,`rooms/${roomId}/players/${playerId}`)).remove();selectedMode=room.mode;setMode(selectedMode);currentRoom=room;watchRoom();enterLobby();
+ }catch(e){toast("Could not join. Check Firebase config/rules.");console.error(e);}
+}
+function watchRoom(){cleanup();if(!db||localMode)return;roomUnsub=onValue(ref(db,"rooms/"+roomId),snap=>{if(!snap.exists()){toast("Room was closed.");return;}currentRoom=snap.val();selectedMode=currentRoom.mode||selectedMode;$("modeLabel").textContent=modeNames[selectedMode];refreshPlayers(currentRoom.players||{});if(currentRoom.state&&currentRoom.state.started&&$("gamePanel").classList.contains("hidden")&&!$("resultPanel").classList.contains("hidden"))return;});}
+function enterLobby(){hide("setup");show("lobby");hide("gamePanel");hide("resultPanel");$("roomCode").textContent=roomId;$("modeLabel").textContent=modeNames[selectedMode];refreshPlayers(currentRoom.players||{});if(localMode)setStatus("Demo mode: only this phone. Firebase needed for live partner play.");else setStatus("Connected to room "+roomId,true);if(db&&!localMode){gameUnsub=onValue(ref(db,`rooms/${roomId}/state`),snap=>{const s=snap.val();if(s&&s.started){round=s.round||0;localSpot=s.spot||0;selectedMode=currentRoom?.mode||selectedMode;hide("lobby");hide("resultPanel");show("gamePanel");renderGame(s);}else if(s&&s.finished){hide("gamePanel");show("resultPanel");}});}}
+async function startGame(){round=0;chosen=null;localAnswers=[];localTruthIndex=0;localSpot=0;if(db&&!localMode){await update(ref(db,`rooms/${roomId}/state`),{started:true,round:0,answers:{},votes:{},spot:0,updatedAt:Date.now()});}show("gamePanel");hide("lobby");hide("resultPanel");renderGame();}
+function renderGame(state){
+ $("gameHeading").textContent=({quiz:"💌 Couple Quiz",truth:"🤭 Truth or Dare",adventure:"🏡 Couple Adventure"})[selectedMode];$("roundTag").textContent=selectedMode==="adventure"?"Spot "+(localSpot+1):"Round "+(round+1);$("progressBar").style.width=(((selectedMode==="adventure"?localSpot:round)+1)/(selectedMode==="adventure"?spots.length:selectedMode==="quiz"?quizQuestions.length:truths.length))*100+"%";
+ const content=$("gameContent");
+ if(selectedMode==="quiz"){const q=quizQuestions[round%quizQuestions.length];content.innerHTML=`<div class="small">Choose your answer, then ask your partner to choose theirs.</div><div class="question">${q.q}</div><div class="answers">${q.a.map((a,i)=>`<button class="answer ${chosen===i?"chosen":""}" data-answer="${i}">${a}</button>`).join("")}</div><div id="answerStatus" class="notice" style="margin-top:12px">${chosen===null?"Pick one answer — there are no wrong answers! 💗":"Your answer is saved on this device."}</div>`;content.querySelectorAll("[data-answer]").forEach(b=>b.onclick=()=>chooseAnswer(Number(b.dataset.answer))); }
+ else if(selectedMode==="truth"){const type=localTruthIndex%2===0?"truth":"dare";const item=type==="truth"?truths[round%truths.length]:dares[round%dares.length];content.innerHTML=`<span class="tag">${type==="truth"?"TRUTH 💌":"DARE 🤪"}</span><div class="question">${item}</div><div class="notice">Take turns! You can skip any question or dare — keep it kind and comfortable. 🫶</div><div class="row" style="margin-top:12px"><button class="btn dark" id="truthBtn">Truth 💗</button><button class="btn" id="dareBtn">Dare 🤭</button></div>`;$("truthBtn").onclick=()=>{localTruthIndex=0;renderGame()};$("dareBtn").onclick=()=>{localTruthIndex=1;renderGame()};}
+ else {const s=spots[localSpot%spots.length];content.innerHTML=`<div class="story"><div style="font-size:2.4rem">${s.emoji}</div><span class="tag">STORY STOP ${localSpot+1}</span><div class="question" style="font-size:1.4rem">${s.name}</div>${s.desc}</div><div class="small" style="margin-top:14px">Choose what you two should do here:</div><div class="answers" style="margin-top:9px">${s.choice.map((c,i)=>`<button class="answer ${chosen===i?"chosen":""}" data-answer="${i}">${c}</button>`).join("")}</div><div class="adventure-map">${spots.map((p,i)=>`<div class="spot ${i===localSpot?"current":i<localSpot?"":"locked"}"><span>${i<localSpot?"💗":p.emoji}</span><small>${p.name}</small></div>`).join("")}</div>`;content.querySelectorAll("[data-answer]").forEach(b=>b.onclick=()=>chooseAnswer(Number(b.dataset.answer)));}
+}
+async function chooseAnswer(i){chosen=i;if(db&&!localMode){try{await set(ref(db,`rooms/${roomId}/state/answers/${playerId}`),{round,choice:i,at:Date.now()});}catch(e){toast("Couldn't sync answer. Check database rules.");}}renderGame();}
+async function nextRound(){chosen=null;if(selectedMode==="quiz"){round++;if(round>=quizQuestions.length){finishGame();return;}}else if(selectedMode==="truth"){round++;localTruthIndex=1-localTruthIndex;if(round>=6){finishGame();return;}}else{localSpot++;if(localSpot>=spots.length){finishGame();return;}}
+ if(db&&!localMode){await update(ref(db,`rooms/${roomId}/state`),{round,spot:localSpot,answers:{},updatedAt:Date.now()});}renderGame();}
+function finishGame(){hide("gamePanel");show("resultPanel");$("resultText").textContent=selectedMode==="quiz"?"Your answers are saved locally for this session. Compare them and see what you guessed about each other! 💗":selectedMode==="truth"?"You made it through the Truth or Dare rounds! Give each other a compliment before you go. 💌":"You explored all five stops together. Your next adventure can be anything you imagine! 🏡💗";if(db&&!localMode)update(ref(db,`rooms/${roomId}/state`),{started:false,finished:true});}
+function backToRoom(){hide("gamePanel");hide("resultPanel");show("lobby");}
+async function leaveRoom(){cleanup();if(db&&!localMode&&roomId&&playerId){try{await remove(ref(db,`rooms/${roomId}/players/${playerId}`));}catch(e){}}roomId="";playerId="";currentRoom=null;localMode=false;hide("lobby");hide("gamePanel");hide("resultPanel");show("setup");}
+$("createBtn").onclick=createRoom;$("joinBtn").onclick=joinRoom;$("startBtn").onclick=startGame;$("nextBtn").onclick=nextRound;$("backBtn").onclick=backToRoom;$("leaveBtn").onclick=leaveRoom;
+$("playAgainBtn").onclick=()=>{hide("resultPanel");show("lobby");if(db&&!localMode)update(ref(db,`rooms/${roomId}/state`),{started:false,finished:false,round:0,spot:0,answers:{}});};
+$("copyBtn").onclick=async()=>{const text=`Join my You & Me game 💗\nRoom code: ${roomId}\nOpen the same game website and enter this code!`;try{await navigator.clipboard.writeText(text);toast("Invite info copied 💌");}catch(e){toast(text);}};
+if(!db){setTimeout(()=>toast("Preview mode is ready! Configure Firebase for two-phone play."),900);}
+</script>
+</body>
+</html>
